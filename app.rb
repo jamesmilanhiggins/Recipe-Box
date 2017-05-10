@@ -18,3 +18,43 @@ post "/recipes" do
   Recipe.create({name: name, instructions: instructions, rating: rating})
   redirect "/recipes"
 end
+
+get "/recipes/:id" do
+  id = params["id"].to_i
+  @recipe = Recipe.find(id)
+  erb :recipe
+end
+
+get "/tags" do
+  @tags = Tag.all
+  erb :tags
+end
+
+post "/tags" do
+  category = params["category"]
+  Tag.create({category: category})
+  redirect "/tags"
+end
+
+get "/tags/:id" do
+  id = params["id"].to_i
+  @tag = Tag.find(id)
+  erb :tag
+end
+
+get "/ingredients" do
+  @ingredients = Ingredient.all
+  erb :ingredients
+end
+
+post "/ingredients" do
+  item = params["item"]
+  Ingredient.create({item: item})
+  redirect "/ingredients"
+end
+
+get "/ingredients/:id" do
+  id = params["id"]
+  @ingredient = Ingredient.find(id)
+  erb :ingredient
+end

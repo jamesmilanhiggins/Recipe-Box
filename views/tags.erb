@@ -1,0 +1,29 @@
+
+<% if @tags == [] %>
+
+<p>There are currently no tags saved</p>
+
+<% else %>
+
+<h1>Your Tags</h1>
+
+<ul>
+
+  <% @tags.each() do |tag| %>
+
+  <li><a href="/tags/<%= tag.id() %>"><%= tag.category() %></a></li>
+
+  <% end %>
+
+</ul>
+
+<% end %>
+
+<hr>
+<h1>Add a tag</h1>
+
+<form action="tags" method="post">
+  <label for="category">Category:</label>
+  <input type="text" name="category">
+<button class="btn btn-default" type="submit">Add Tag</button>
+</form>
