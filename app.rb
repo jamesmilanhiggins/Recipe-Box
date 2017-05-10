@@ -22,6 +22,7 @@ end
 get "/recipes/:id" do
   id = params["id"].to_i
   @recipe = Recipe.find(id)
+  @list_ingredients = Ingredient.all
   erb :recipe
 end
 
@@ -49,8 +50,12 @@ end
 
 post "/ingredients" do
   item = params["item"]
-  Ingredient.create({item: item})
-  redirect "/ingredients"
+  ingredient = Ingredient.create({item: item})
+  if ingredient.save
+    redirect "/ingredients"
+  else
+    erb :errors
+  end
 end
 
 get "/ingredients/:id" do
