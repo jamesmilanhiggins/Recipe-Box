@@ -1,0 +1,36 @@
+
+<% if @recipes == [] %>
+
+<p>There are currently no recipes saved</p>
+
+<% else %>
+
+<h1>Your Recipes</h1>
+
+<ul>
+
+  <% @recipes.each() do |recipe| %>
+
+  <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.name() %></a></li>
+
+  <% end %>
+
+</ul>
+
+<% end %>
+
+<hr>
+<h1>Add a Recipe</h1>
+
+<form action="recipes" method="post">
+  <label for="name">Recipe Name:</label>
+  <input type="text" name="name">
+
+  <label for="instructions">Instructions:</label>
+  <input type="text" name="instructions">
+
+  <label for="rating">Rating (1-10):</label>
+  <input type="text" name="rating">
+
+  <button class="btn btn-default" type="submit">Add Recipe</button>
+</form>
