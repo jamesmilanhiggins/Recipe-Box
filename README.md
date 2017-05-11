@@ -79,4 +79,7 @@ _I encourage you to update/make suggestions/refactor this code as you see fit. I
 *This software is licensed under the MIT license*
 Copyright © 2017 **Asia Kane and James Higgins**
 
-![a picture](/public/img/pineapples.jpeg)
+![recipes page](/public/img/recipes_screen_shot.png)
+![ingredients page](/public/img/ingredients_screen_shot.png)
+![tags page](/public/img/tags_screen_shot.png)
+![salmon page](/public/img/salmon_screen_shot.png)
