@@ -1,0 +1,17 @@
+body {
+  font-family: 'Space Mono', monospace;
+}
+
+.navbar {
+  background-image: url('../img/pineapples2.jpeg');
+  background-position: center;
+  min-height: 280px;
+}
+
+.nav-text{
+  font-size: 1.5em;
+}
+
+h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+}
