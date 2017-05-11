@@ -1,1 +1,7 @@
 <h1><%= @tag.category %></h1>
+
+<ul>
+  <% @tag.recipes.each do |recipe| %>
+    <li>  <%= recipe.name%> </li>
+  <% end %>
+</ul>
