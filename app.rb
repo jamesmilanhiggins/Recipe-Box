@@ -6,6 +6,8 @@ get "/" do
   erb :index
 end
 
+
+# Recipes Section
 get "/recipes" do
   @recipes = Recipe.all
   erb :recipes
@@ -26,6 +28,8 @@ get "/recipes/:id" do
   erb :recipe
 end
 
+
+# Tags section
 get "/tags" do
   @tags = Tag.all
   erb :tags
@@ -43,6 +47,8 @@ get "/tags/:id" do
   erb :tag
 end
 
+
+# Ingredients Section
 get "/ingredients" do
   @ingredients = Ingredient.all
   erb :ingredients
@@ -50,8 +56,8 @@ end
 
 post "/ingredients" do
   item = params["item"]
-  ingredient = Ingredient.create({item: item})
-  if ingredient.save
+  @ingredient = Ingredient.create({item: item})
+  if @ingredient.save
     redirect "/ingredients"
   else
     erb :errors
