@@ -1,28 +1,36 @@
 <h1> <%= @recipe.name %></h1>
 <br>
+
+<!-- Recipe Details -->
 <p>Rating: <%= @recipe.rating %></p>
 <br>
 <p> Instructions: <%= @recipe.instructions %></p>
 <br>
 <p> Ingredients: </p>
-
 <ul>
   <% @recipe.ingredients.each do |ingredient| %>
     <li><%= ingredient.item %></li>
     <% end %>
 </ul>
+<br>
+<p> Tags: </p>
+
+<ul>
+  <% @recipe.tags.each do |tag| %>
+    <li><%= tag.category %></li>
+    <% end %>
+</ul>
 
 
 <hr>
-
-<h1>Add ingredients to <%= @recipe.name %></h1>
+<!-- Add Ingredients to this recipe -->
+<h1>Add Ingredients and Tags to <%= @recipe.name %></h1>
 
 <form action="/recipes/<%= @recipe.id %>" method="post">
 
   <input type="hidden" name="recipe_id" value="<%= @recipe.id() %>">
 
   <label for="ingredients">Select Ingredients:</label>
-
   <select name="ingredient_id">
     <option value=""></option>
     <% @list_ingredients.each() do |ingredient| %>
@@ -30,5 +38,25 @@
     <% end %>
   </select>
 
-  <button class="btn btn-default" type="submit">Add Ingredient</button>
+  <label for="tags">Select Tags:</label>
+  <select name="tag_id">
+    <option value=""></option>
+    <% @list_tags.each() do |tag| %>
+    <option value="<%= tag.id() %>"><%= tag.category %></option>
+    <% end %>
+  </select>
+
+  <button class="btn btn-default" type="submit">Add</button>
 </form>
+
+<hr>
+<!-- Add Tags to this recipe -->
+<!-- <h1>Add tags to <%= @recipe.name %></h1>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+
+  <input type="hidden" name="recipe_id" value="<%= @recipe.id() %>">
+
+
+  <button class="btn btn-default" type="submit">Add Tag</button>
+</form> -->

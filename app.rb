@@ -25,18 +25,29 @@ get "/recipes/:id" do
   id = params["id"].to_i
   @recipe = Recipe.find(id)
   @list_ingredients = Ingredient.all
+  @list_tags = Tag.all
   erb :recipe
 end
 
-#add ingredient to recipe
+#add ingredient and tag to a specific recipe
 post "/recipes/:id" do
   recipe_id = params["id"].to_i
   ingredient_id = params["ingredient_id"].to_i
+  tag_id = params["tag_id"].to_i
   recipe = Recipe.find(recipe_id)
-  recipe.ingredients.push(Ingredient.find(ingredient_id))
+
+  if ingredient_id == 0
+  else
+    recipe.ingredients.push(Ingredient.find(ingredient_id))
+  end
+
+  if tag_id == 0
+  else
+    recipe.tags.push(Tag.find(tag_id))
+  end
+
   redirect "/recipes/#{recipe_id}"
 end
-
 
 # Tags section
 get "/tags" do
