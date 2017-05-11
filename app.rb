@@ -28,6 +28,15 @@ get "/recipes/:id" do
   erb :recipe
 end
 
+#add ingredient to recipe
+post "/recipes/:id" do
+  recipe_id = params["id"].to_i
+  ingredient_id = params["ingredient_id"].to_i
+  recipe = Recipe.find(recipe_id)
+  recipe.ingredients.push(Ingredient.find(ingredient_id))
+  redirect "/recipes/#{recipe_id}"
+end
+
 
 # Tags section
 get "/tags" do

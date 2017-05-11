@@ -3,7 +3,14 @@
 <p>Rating: <%= @recipe.rating %></p>
 <br>
 <p> Instructions: <%= @recipe.instructions %></p>
+<br>
+<p> Ingredients: </p>
 
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.item %></li>
+    <% end %>
+</ul>
 
 
 <hr>
