@@ -67,6 +67,14 @@ get "/tags/:id" do
   erb :tag
 end
 
+patch "/tags/:id" do
+  tag_id = params["id"]
+  tag = Tag.find(tag_id)
+  category = params["category"]
+  tag.update({category: category})
+  redirect "/tags/#{tag_id}"
+end
+
 
 # Ingredients Section
 get "/ingredients" do
