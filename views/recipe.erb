@@ -68,3 +68,12 @@
 
   <button class="btn btn-default" type="submit">Remove Tag</button>
 </form>
+
+<hr>
+<!-- Delete this recipe -->
+<h1>Delete <%= @recipe.name %></h1>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button class="btn btn-danger" type="submit">Delete this Recipe</button>
+</form>

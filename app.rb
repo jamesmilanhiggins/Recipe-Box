@@ -38,6 +38,13 @@ patch "/recipes/:id" do
   redirect "/recipes/#{recipe_id}"
 end
 
+delete "/recipes/:id" do
+  recipe_id = params["id"].to_i
+  recipe = Recipe.find(recipe_id)
+  recipe.destroy
+  redirect "/recipes"
+end
+
 #add ingredient and tag to a specific recipe
 post "/recipes/:id" do
   recipe_id = params["id"].to_i
