@@ -23,7 +23,7 @@
 
 
 <hr>
-<!-- Add Ingredients to this recipe -->
+<!-- Add Ingredients and Tags to this recipe -->
 <h1>Add Ingredients and Tags to <%= @recipe.name %></h1>
 
 <form action="/recipes/<%= @recipe.id %>" method="post">
@@ -50,13 +50,21 @@
 </form>
 
 <hr>
-<!-- Add Tags to this recipe -->
-<!-- <h1>Add tags to <%= @recipe.name %></h1>
+<!-- Delete Tags from this recipe -->
+<h1>Delete a Tag from <%= @recipe.name %></h1>
 
 <form action="/recipes/<%= @recipe.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
 
   <input type="hidden" name="recipe_id" value="<%= @recipe.id() %>">
 
+  <label for="tags">Select Tag to Delete:</label>
+  <select name="tag_id">
+    <option value=""></option>
+    <% @recipe.tags.each() do |tag| %>
+      <option value="<%= tag.id() %>"><%= tag.category %></option>
+    <% end %>
+  </select>
 
-  <button class="btn btn-default" type="submit">Add Tag</button>
-</form> -->
+  <button class="btn btn-default" type="submit">Remove Tag</button>
+</form>

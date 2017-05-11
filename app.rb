@@ -29,6 +29,15 @@ get "/recipes/:id" do
   erb :recipe
 end
 
+patch "/recipes/:id" do
+  recipe_id = params["id"].to_i
+  tag_id = params["tag_id"].to_i
+  tag = Tag.find(tag_id)
+  recipe = Recipe.find(recipe_id)
+  recipe.tags.destroy(tag)
+  redirect "/recipes/#{recipe_id}"
+end
+
 #add ingredient and tag to a specific recipe
 post "/recipes/:id" do
   recipe_id = params["id"].to_i
