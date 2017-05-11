@@ -9,7 +9,7 @@ end
 
 # Recipes Section
 get "/recipes" do
-  @recipes = Recipe.all
+  @sorted_recipes = Recipe.all.order(rating: :desc)
   erb :recipes
 end
 
